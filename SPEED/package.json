@@ -5,7 +5,9 @@
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
-    "server": "nodemon backend/server.js"
+    "server": "nodemon backend/server.js",
+    "install-react-test": "cd frontend && npm install",
+    "run-react-test": "cd frontend && npm run test"
   },
   "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
   "license": "ISC",
