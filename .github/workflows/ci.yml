@@ -27,7 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
-      run: npm install-react-test
+      run: npm run install-react-test
       
 
     - name: Run the tests
