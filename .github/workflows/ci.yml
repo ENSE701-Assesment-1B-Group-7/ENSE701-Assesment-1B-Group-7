@@ -8,8 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./SPEED
 
     strategy:
       matrix:
@@ -26,8 +28,7 @@ jobs:
 
     - name: Install dependencies
       run: npm install-react-test
-      working-directory: ./SPEED
+      
 
     - name: Run the tests
       run: npm run run-react-test
-      working-directory: ./SPEED
