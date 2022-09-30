@@ -1,19 +1,24 @@
+# Basic CI implementation
+
 name: CI_action
 
 on:
   push:
-    branches: [ main ]
+    branches: [ main, unit-tests ]
   pull_request:
-    branches: [ main ]
+    branches: [ main, unit-tests ]
 
+# Make sure to run on ubuntu and change working directory to ./SPEED for any runs
 jobs:
   build:
-
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./SPEED
 
     strategy:
       matrix:
-        node-version: [12.x]
+        node-version: [14.x]
 
     steps:
     - name: Checkout repository
@@ -24,11 +29,10 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Install dependencies
-      run: npm install
+# React tests
+# Note: The package.json in SPEED will handle moving to different directories and running frontend/backend in different places
+    - name: Install react dependencies
+      run: npm run install-react-test
 
-    - name: Run the tests
-      run: npm test
-
-    - name: Build
-      run: npm run build
+    - name: Run react  tests
+      run: npm run run-react-test
