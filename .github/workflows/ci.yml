@@ -25,7 +25,9 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - name: Install dependencies
+      working-directory: ./SPEED
       run: npm install-react-test
 
     - name: Run the tests
+      working-directory: ./SPEED
       run: npm run run-react-test
