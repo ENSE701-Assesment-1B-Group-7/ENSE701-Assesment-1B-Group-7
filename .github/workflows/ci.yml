@@ -1,3 +1,5 @@
+# Basic CI implementation
+
 name: CI_action
 
 on:
@@ -6,6 +8,7 @@ on:
   pull_request:
     branches: [ main, unit-tests ]
 
+# Make sure to run on ubuntu and change working directory to ./SPEED for any runs
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -26,6 +29,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+# React tests
+# Note: The package.json in SPEED will handle moving to different directories and running frontend/backend in different places
     - name: Install react dependencies
       run: npm run install-react-test
 
