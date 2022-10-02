@@ -24,6 +24,7 @@ app.use('/api/articles', articles);
 
 // Set-up for frontend + backend on heroku
 if (process.env.NODE_ENV === 'production') {
+    console.log(process.env.NODE_ENV);
     console.log("In production");
     console.log(path.join(__dirname,'/../frontend/build'));
     app.use(express.static(path.join(__dirname,'/../frontend/build')));
