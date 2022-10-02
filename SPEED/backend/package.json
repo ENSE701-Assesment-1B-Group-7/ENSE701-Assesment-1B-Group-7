@@ -4,10 +4,9 @@
   "description": "SPEED MERN app",
   "main": "server.js",
   "scripts": {
-    "start": "node backend/server.js",
-    "server": "nodemon backend/server.js",
-    "install-react-test": "cd frontend && npm install",
-    "run-react-test": "cd frontend && npm run test"
+    "start": "node server.js",
+    "app": "node server.js",
+    "server": "nodemon server.js"
   },
   "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
   "license": "ISC",
