@@ -1,9 +1,23 @@
-console.log("Test: in server.js");
-
 const express = require('express');
-const dotenv = require('dotenv').config();
-const port = process.env.PORT || 5000;
+const connectDB = require('./config/db');
+
+// routes
+const articles = require('./routes/api/articles');
 
 const app = express();
 
-app.listen(port, () => console.log(`Server started on PORT ${port}`));
+const dotenv = require("dotenv");
+dotenv.config();
+
+connectDB();
+
+// Init Middleware
+app.use(express.json({ extended: false }));
+
+app.get('/', (req, res) => res.send('Hello world!'));
+
+// use Routes
+app.use('/api/articles', articles);
+
+const port = process.env.PORT || 8082;
+app.listen(port, () => console.log(`Server running on port ${port}`));
