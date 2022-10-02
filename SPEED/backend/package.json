@@ -1,0 +1,24 @@
+{
+  "name": "speed",
+  "version": "1.0.0",
+  "description": "SPEED MERN app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "server": "nodemon backend/server.js",
+    "install-react-test": "cd frontend && npm install",
+    "run-react-test": "cd frontend && npm run test"
+  },
+  "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "config": "^3.3.8",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

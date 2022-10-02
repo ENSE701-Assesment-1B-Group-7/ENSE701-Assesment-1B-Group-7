@@ -1,9 +1,15 @@
-console.log("Test: in server.js");
-
 const express = require('express');
-const dotenv = require('dotenv').config();
-const port = process.env.PORT || 5000;
+const connectDB = require('./config/db');
 
 const app = express();
 
-app.listen(port, () => console.log(`Server started on PORT ${port}`));
+const dotenv = require("dotenv");
+dotenv.config();
+
+connectDB();
+
+app.get('/', (req, res) => res.send('Hello world!'));
+
+const port = process.env.PORT || 8082;
+console.log(process.env.PORT)
+app.listen(port, () => console.log(`Server running on port ${port}`));
