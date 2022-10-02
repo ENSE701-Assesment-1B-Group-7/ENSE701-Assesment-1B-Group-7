@@ -5,6 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "cd ./SPEED/backend && node server.js",
     "build": "cd ./SPEED && npm run build",
 	  "heroku-postbuild": "cd ./SPEED && npm run heroku-build"
   },
