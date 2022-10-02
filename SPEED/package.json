@@ -10,8 +10,8 @@
     "run-react-test": "cd frontend && npm run test",
 	    "build-react": "cd frontend && npm run build",
       "prepare-backend": "cd backend && npm install",
-  "build": "cd backend && npm run app",
-	"heroku-build": "npm run prepare-backend && npm run install-react && npm run build-react"
+      "build": "cd backend && npm run server",
+	    "heroku-build": "npm run prepare-backend && npm run install-react && npm run build-react"
   },
   "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
   "license": "ISC",
