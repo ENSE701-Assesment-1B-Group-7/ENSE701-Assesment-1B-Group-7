@@ -1,7 +1,7 @@
 const dummyArticles = [
     {
       id: "1",
-      title: 'Article Title ...',
+      title: 'Article 1',
       authors: "Authors ...",
       pubyear: "Year Published ...",
       claim: "Artile Claim ...", 
@@ -15,7 +15,7 @@ const dummyArticles = [
     },
     {
       id: "2",
-      title: 'Article Title ...',
+      title: 'Article 2',
       authors: "Authors ...",
       pubyear: "Year Published ...",
       claim: "Artile Claim ...", 
