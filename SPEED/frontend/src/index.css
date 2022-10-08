@@ -3,9 +3,16 @@ body {
   padding: 20px;
   margin: 0;
 }
-h1, h2, p, ul, li {
+h1, h2, h3, h4, p, ul, li, label {
   font-family: Bahnschrift;
   color: #398698;
+}
+label{
+  padding-right: 20px;
+}
+input{
+  width: 600px;
+  height: 50px;
 }
 ul.header li {
   display: inline;
@@ -22,9 +29,19 @@ ul.header li a {
   padding: 20px;
   display: inline-block;
 }
+button{
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+  background-color: #fa8334;
+  border-style: none;
+}
 .active {
   background-color: #fa8334;
 }
+
 .largeLetter{
   color: #398698;
   font-family: Bahnschrift;
@@ -35,7 +52,6 @@ ul.header li a {
   font-family: Bahnschrift;
   font-size: 1cm;
 }
-
 .title{
   margin: auto;
   width: 60%;
@@ -45,7 +61,11 @@ ul.header li a {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+}
+
+.PageText{
+  padding-left: 20%;
+  padding-right: 30%;
 }
 
 @media (max-width: 1800px)
