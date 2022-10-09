@@ -39,7 +39,19 @@ router.delete('/:id', (req, res) => {
 
 //seacrhing for articles with word 
 router.get('/search/:searchData', (req, res) => {
-  Article.find({ "title": { "$regex": req.params.searchData, "$options": "i" } })
+  Article.find(
+    { 
+      $or:[
+        {"title": { "$regex": req.params.searchData, "$options": "i"}},
+        {"authors": { "$regex": req.params.searchData, "$options": "i"}},
+        {"claim": { "$regex": req.params.searchData, "$options": "i"}},
+        {"evidence": { "$regex": req.params.searchData, "$options": "i"}},
+        {"description": { "$regex": req.params.searchData, "$options": "i"}},
+        {"source": { "$regex": req.params.searchData, "$options": "i"}},
+        {"isbn": { "$regex": req.params.searchData, "$options": "i"}}
+      ]
+    }
+  )
     .then(articles => res.json(articles))
     .catch(err => res.status(404).json({ unknownerror: 'Error' }));
 });
