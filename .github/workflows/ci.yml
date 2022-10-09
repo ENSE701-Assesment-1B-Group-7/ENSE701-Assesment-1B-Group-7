@@ -32,7 +32,7 @@ jobs:
 # React tests
 # Note: The package.json in SPEED will handle moving to different directories and running frontend/backend in different places
     - name: Install react dependencies
-      run: npm run install-react-test
+      run: npm run install-react
 
     - name: Run react  tests
       run: npm run run-react-test

@@ -1,0 +1,25 @@
+{
+  "name": "speed",
+  "version": "1.0.0",
+  "description": "SPEED MERN app",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "app": "node server.js",
+    "server": "nodemon server.js"
+  },
+  "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.4.0",
+    "config": "^3.3.8",
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1",
+    "mongoose": "^6.6.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19"
+  }
+}

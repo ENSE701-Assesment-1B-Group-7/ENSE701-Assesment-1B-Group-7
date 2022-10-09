@@ -6,10 +6,12 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "install-react-test": "cd frontend && npm install",
+    "install-react": "cd frontend && npm install",
     "run-react-test": "cd frontend && npm run test",
-	"build-react": "cd frontend && npm run build",
-	"heroku-build": "npm run install-react-test && npm run build-react"
+	    "build-react": "cd frontend && npm run build",
+      "prepare-backend": "cd backend && npm install",
+      "build": "cd backend && npm run server",
+	    "heroku-build": "npm run prepare-backend && npm run install-react && npm run build-react"
   },
   "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
   "license": "ISC",

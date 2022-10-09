@@ -1,13 +1,76 @@
 body {
+  background-color: #281034;
+  padding: 20px;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+}
+h1, h2, h3, h4, p, ul, li, label {
+  font-family: Bahnschrift;
+  color: #398698;
+}
+label{
+  padding-right: 20px;
+}
+input{
+  width: 600px;
+  height: 50px;
+}
+ul.header li {
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+}
+ul.header {
+  padding: 0;
+}
+ul.header li a {
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+}
+button{
+  color: #FFF;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 20px;
+  display: inline-block;
+  background-color: #fa8334;
+  border-style: none;
+}
+.active {
+  background-color: #fa8334;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.largeLetter{
+  color: #398698;
+  font-family: Bahnschrift;
+  font-size: 3cm;
+}
+.smallLetter{
+  color: #398698;
+  font-family: Bahnschrift;
+  font-size: 1cm;
+}
+.title{
+  margin: auto;
+  width: 60%;
+}
+
+.submissionForm{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.PageText{
+  padding-left: 20%;
+  padding-right: 30%;
+}
+
+@media (max-width: 1800px)
+{
+  .title{
+    width: 100px;
+  }
 }
