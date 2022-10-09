@@ -37,4 +37,11 @@ router.delete('/:id', (req, res) => {
     .catch(err => res.status(404).json({ error: 'No such a article' }));
 });
 
+//seacrhing for articles with word 
+router.get('/search/:searchData', (req, res) => {
+  Article.find({ "title": { "$regex": req.params.searchData, "$options": "i" } })
+    .then(articles => res.json(articles))
+    .catch(err => res.status(404).json({ unknownerror: 'Error' }));
+});
+
 module.exports = router;
