@@ -4,9 +4,9 @@ name: CI_action
 
 on:
   push:
-    branches: [ main, production, unit-tests ]
+    branches: [ main, production, unit-tests, backend ]
   pull_request:
-    branches: [ main, production, unit-tests ]
+    branches: [ main, production, unit-tests, backend ]
 
 # Make sure to run on ubuntu and change working directory to ./SPEED for any runs
 jobs:
