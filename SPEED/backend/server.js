@@ -1,5 +1,6 @@
 const express = require('express');
 const connectDB = require('./config/db');
+const cors = require('cors');
 const port = process.env.PORT || 8082;
 
 const path = require('path');
@@ -16,6 +17,7 @@ connectDB();
 
 // Init Middleware
 app.use(express.json({ extended: false }));
+app.use(cors({ origin: true, credentials: true }));
 
 // use Routes
 app.use('/api/articles', articles);

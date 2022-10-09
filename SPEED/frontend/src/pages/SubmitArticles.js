@@ -1,12 +1,16 @@
-import SubmissionForm from "../components/SubmissionForm.js";
- 
+import Form from "../components/Form"; 
+
 const SubmitArticle = () =>  {
      return (
-      <div>
-        <h2>Submit Article</h2>
-            <p>This will be a form to allow submitters to submit an article for possible inclusion in our SEED repo.</p>
+      <div className="PageText">
+        <h1>Submit Article</h1>
+            <p>Anyone can submit an article of interest, sll submissions will be reviewed by out moderators 
+                for relevance to software engineering practices. Once a decision has been made and you will be 
+                notified.</p>
             <div className="submissionForm">
-                <SubmissionForm />
+                
+                <Form />
+                
             </div>
         
         </div>
