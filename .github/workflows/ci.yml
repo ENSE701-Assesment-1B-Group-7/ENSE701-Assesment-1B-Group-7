@@ -38,7 +38,7 @@ jobs:
       run: npm run run-react-test
 
     - name: Install Backend Tests
-      run: npm run install-backend
+      run: npm run prepare-backend
 
     - name: Run backend tests
       run: npm run test=backend
