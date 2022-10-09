@@ -6,7 +6,8 @@
   "scripts": {
     "start": "node server.js",
     "app": "node server.js",
-    "server": "nodemon server.js"
+    "server": "nodemon server.js",
+    "test": "node article.test.js"
   },
   "author": "Elliot Smith, Yeran Edmonds, Michael J B Wighton",
   "license": "ISC",
