@@ -6,6 +6,10 @@ async function test() {
         .then(res => {
             data = res.data;
             console.assert(data.authors === "Joe Mamma");
+            if (data.authors !== "Joe Mama")
+            {
+                console.log("Succeeded and failed correctly");
+            }
         });
     } catch (e) {
         console.log(e);

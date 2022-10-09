@@ -10,6 +10,7 @@
     "run-react-test": "cd frontend && npm run test",
 	    "build-react": "cd frontend && npm run build",
       "prepare-backend": "cd backend && npm install",
+      "test-backend": "cd backend && npm run test",
       "build": "cd backend && npm run server",
 	    "heroku-build": "npm run prepare-backend && npm run install-react && npm run build-react"
   },

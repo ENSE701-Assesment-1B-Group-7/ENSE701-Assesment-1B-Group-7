@@ -4,9 +4,9 @@ name: CI_action
 
 on:
   push:
-    branches: [ main, unit-tests ]
+    branches: [ main, production, unit-tests, backend ]
   pull_request:
-    branches: [ main, unit-tests ]
+    branches: [ main, production, unit-tests, backend ]
 
 # Make sure to run on ubuntu and change working directory to ./SPEED for any runs
 jobs:
@@ -36,3 +36,9 @@ jobs:
 
     - name: Run react  tests
       run: npm run run-react-test
+
+    - name: Install Backend Tests
+      run: npm run install-backend
+
+    - name: Run backend tests
+      run: npm run test=backend
