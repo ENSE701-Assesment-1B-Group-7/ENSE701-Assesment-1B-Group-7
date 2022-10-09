@@ -6,7 +6,7 @@
   "scripts": {
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
-    "install-react-test": "cd frontend && npm install",
+    "install-react": "cd frontend && npm install",
     "run-react-test": "cd frontend && npm run test",
     "build-react": "cd frontend && npm run build",
     "prepare-backend": "cd backend && npm install",
