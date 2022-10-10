@@ -31,6 +31,25 @@ const SEPractice = () => {
         setArticles(data);
       })
     }
+    else if(search === "")
+    {
+      fetch(`https://ense701-assesment-1b-group-7.herokuapp.com/api/articles/`)
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        console.log(data);
+        
+        if(!Array.isArray(data))
+        {
+          console.log("Not an array");
+          data = [];
+        }
+        setArticles(data);
+      })
+    }
+
+
   }, [search]);
 
   return (

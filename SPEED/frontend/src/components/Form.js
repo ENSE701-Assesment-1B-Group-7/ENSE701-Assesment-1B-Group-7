@@ -1,6 +1,5 @@
 import React, {useState} from 'react';
 
-
 const Form = () => {
 
     /* useState 1st argument is variable, 2nd is function that is passed a value to assign to 1st*/
@@ -23,13 +22,15 @@ const Form = () => {
         console.log(article);
 
         /* POST request */ 
+        /*
         fetch('http://localhost:3000/SEPractice', {
             method: 'POST',
             headers: {"Content-Type": "application/JSON"},
             body: JSON.stringify(article)
         }).then(
             console.log("New Article Added")
-        )
+        )*/
+        
     }
 
     return (
