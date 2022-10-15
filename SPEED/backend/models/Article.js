@@ -44,7 +44,7 @@ const ArticleSchema = new mongoose.Schema({
   rights:{
     type: String,
     required: false
-  },
+  }
 });
 
 module.exports = Article = mongoose.model('article', ArticleSchema);
