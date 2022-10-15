@@ -12,6 +12,7 @@ async function fetchTest(title, expectedSuccess) {
                 if(!expectedSuccess)
                 {
                     console.log(title);
+                    console.log(data);
                     core.setFailed("succeeded on fetch test when expecting fail!");
                 }
                 else
