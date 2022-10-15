@@ -1,27 +1,38 @@
-//const submit = require("./liveArticleTest/articlesubmission.test");
 const submitTest = require("./liveArticleTest/articlesubmission.test")
 const fetchTest = require("./liveArticleTest/articlefetch.test");
 const deleteTest = require("./liveArticleTest/articledeletetest.test");
 const dummydata = require("./dummydata/articles");
+const dummydata2 = require("./dummydata/articles2");
 
-//import submitTest from "./liveArticleTest/articlesubmission.test";
-//import fetchTest from "./liveArticleTest/articlefetch.test";
-//import deleteTest from "./liveArticleTest/articledeletetest.test";
+/*  UNIT TEST FOR LIVE ARTICLE SEARCH/SUBMIT/DELETE
 
-function getID(title)
+    In this file we call, and retrieve from, the live api on heroku
+    It will call and retrieve dummy data from heroku to make sure it's all working correctly
+
+    If heroku is ever down, or we're ever accessing the api/mongodb incorrectly, this unit test should fail!
+*/  
+
+function main()
 {
-    return fetchTest(title, true)
-    .then(res => {
-        data = res[0];
-        return data._id;
-    });
+    deleteDataCheck();
+    checkDummyData();
+
+    // Commented out unless we need to submit more data
+    //addDummyData();
 }
 
-const testData = {
-    title: "internalTestTitle",
-    authors: "testBunchOfAuthors",
-    pubyear: "TestIn2000",
+// Simple check to make sure dummy data exists. Will break if there isn't any
+function checkDummyData()
+{
+    console.log("checking dummy data in a new thread");
+    for (let e = 0; e < dummydata2.length; e++)
+    {
+        fetchTest(dummydata2[e].title, true);
+        //.then(e => {console.log(e)});
+    }
 }
+
+//
 
 /*  This function is inelegant because I don't understand async, but I'll explain it.
     Steps:
@@ -34,40 +45,48 @@ const testData = {
 
 function deleteDataCheck()
 {
+    const testData = {
+        title: "internalTestTitle",
+        authors: "testBunchOfAuthors",
+        pubyear: "TestIn2000",
+    }
+
     console.log("delete Data Check");
     id = "";
-    submitTest(testData).then(r => {
+    submitTest(testData)
+    .then(r => {
         getID(testData.title)
         .then (res => {
             id = res;
             deleteTest(id)
-            .then(
+            .then(f => {
                 fetchTest(testData.title, false)
                 .then(e => {
                     console.log("deleted " + testData.title + ":" + id + " successfully")
-                }))
+                })});
             });
-        })
+        });
     }
 
-// Simple check to make sure dummy data exists. Will break if there isn't any
-function checkDummyData()
+
+// Used to retrieve the id of 
+function getID(title)
 {
-    for (let e = 0; e < dummydata.length; e++)
-    {
-        fetchTest(dummydata[e].title, true)
-        .then(e => {console.log(e)});
-    }
+    return fetchTest(title, true)
+    .then(res => {
+        data = res[0];
+        return data._id;
+    });
 }
 
 // Placeholder script for submitting dummy data to MongoDB
 function addDummyData()
 {
-    for (let e = 0; e < dummydata.length; e++)
+    for (let e = 0; e < dummydata2.length; e++)
     {
-        submitTest(dummydata[e]);
+        submitTest(dummydata2[e]);
     }
 }
 
-deleteDataCheck();
-checkDummyData();
+
+main()

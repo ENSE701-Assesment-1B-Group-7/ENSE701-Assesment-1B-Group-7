@@ -2,7 +2,7 @@ const axios = require('axios');
 
 async function deleteTest(id) {
     try {
-        await axios.delete('https://ense701-assesment-1b-group-7.herokuapp.com/api/articles/' + id)
+        return await axios.delete('https://ense701-assesment-1b-group-7.herokuapp.com/api/articles/' + id)
         .then(res => {
             data = res.data;
             if (data.mgs === "Article entry deleted successfully")

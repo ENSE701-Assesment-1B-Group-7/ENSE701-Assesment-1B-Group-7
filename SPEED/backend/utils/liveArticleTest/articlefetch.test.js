@@ -16,7 +16,7 @@ async function fetchTest(title, expectedSuccess) {
                 }
                 else
                 {
-                    console.log("Succeeded and failed correctly");
+                    //console.log("Succeeded and failed correctly");
                 }
             }
             else
@@ -26,7 +26,7 @@ async function fetchTest(title, expectedSuccess) {
                     console.log(title);
                     core.setFailed("failed on fetch test when expecting success!");
                 }
-                console.log("Something wrong with fetch??");
+                //console.log("Something wrong with fetch??");
             }
             return data;
         })
