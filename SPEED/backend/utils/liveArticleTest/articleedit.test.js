@@ -17,8 +17,7 @@ async function editTest(id, importdata) {
         })
         .catch(err => {
             console.log(err);
-        })
-        ;
+        });
     } catch (e) {
         console.log(e);
     }

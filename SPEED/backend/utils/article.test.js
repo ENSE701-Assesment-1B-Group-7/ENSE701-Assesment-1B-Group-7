@@ -8,6 +8,13 @@ const core = require('@actions/core');
 const dummydata = require("./dummydata/articles");
 const dummydata2 = require("./dummydata/articles2");
 
+let testData = {
+    title: "internalTestTitle",
+    authors: "testBunchOfAuthors",
+    pubyear: "TestIn2000",
+}
+
+
 /*  UNIT TEST FOR LIVE ARTICLE SEARCH/SUBMIT/DELETE
 
     In this file we call, and retrieve from, the live api on heroku
@@ -50,12 +57,6 @@ function checkDummyData()
 
 function deleteDataCheck()
 {
-    let testData = {
-        title: "internalTestTitle",
-        authors: "testBunchOfAuthors",
-        pubyear: "TestIn2000",
-    }
-
     console.log("delete Data Check");
     id = "";
     submitTest(testData)
