@@ -17,7 +17,7 @@ const Home = () =>  {
             they have a single accessible resource that isn't behind a pay wall.
           </p>
 
-          <h4> How to use SEED?</h4>
+          <h4> How to use SPEED?</h4>
           <p>There are two main ways to use SPEED and everyone has the ability to do both.</p>
           <ul>
             <li>Search:</li>
