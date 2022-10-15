@@ -1,6 +1,10 @@
 const submitTest = require("./liveArticleTest/articlesubmission.test")
 const fetchTest = require("./liveArticleTest/articlefetch.test");
 const deleteTest = require("./liveArticleTest/articledeletetest.test");
+const editTest = require("./liveArticleTest/articleedit.test");
+const core = require('@actions/core');
+
+
 const dummydata = require("./dummydata/articles");
 const dummydata2 = require("./dummydata/articles2");
 
@@ -38,14 +42,15 @@ function checkDummyData()
     Steps:
         1) Submit testdata
         2) Get the id for the testdata
-        3) delete the test data
-        4) fetch the dest data and expect to fail to retrieve it
+        3) Edit the test data with more test data
+        4) delete the test data
+        5) fetch the dest data and expect to fail to retrieve it
     This tests the LIVE website, but not the functions in the backend
 */
 
 function deleteDataCheck()
 {
-    const testData = {
+    let testData = {
         title: "internalTestTitle",
         authors: "testBunchOfAuthors",
         pubyear: "TestIn2000",
@@ -58,15 +63,30 @@ function deleteDataCheck()
         getID(testData.title)
         .then (res => {
             id = res;
-            deleteTest(id)
-            .then(f => {
-                fetchTest(testData.title, false)
-                .then(e => {
-                    console.log("deleted " + testData.title + ":" + id + " successfully")
-                })});
+            testData.pubyear="BackTest";
+            editTest(id, testData)
+            .then(l => {
+                fetchTest(testData.title, true)
+                .then (lo => {
+                    data = lo[0];
+                    if (data.pubyear !== testData.pubyear)
+                    {
+                        console.log("Did not correctly edit. Failing unit test");
+                        core.setFailed("Incorrectly edited! Failing Test");
+                    }
+                    deleteTest(id)
+                    .then(f => {
+                        fetchTest(testData.title, false)
+                        .then(e => {
+                            console.log("deleted " + testData.title + ":" + id + " successfully")
+                        })
+                    });
+    
+                });
             });
         });
-    }
+    });
+}
 
 
 // Used to retrieve the id of 
