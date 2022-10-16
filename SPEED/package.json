@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "description": "SPEED MERN app",
   "main": "server.js",
+  "type": "module",
   "scripts": {
-    "type": "module",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "install-react": "cd frontend && npm install",
