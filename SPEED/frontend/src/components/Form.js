@@ -1,35 +1,35 @@
 import React, {useState} from 'react';
-
+import axios from 'axios';
 
 const Form = () => {
-
+    
     /* useState 1st argument is variable, 2nd is function that is passed a value to assign to 1st*/
     const [title, setTitle] = useState('');
-    const [author, setAuthor] = useState('');
-    const [pubYear, setPubYear] = useState('');
-    const [claimBenifit, setClaimBenifit] = useState('');
+    const [authors, setAuthors] = useState('');
+    const [pubyear, setPubYear] = useState('');
+    const [claim, setClaim] = useState('');
     const [language, setLanguage] = useState('');
     const [source, setSource] = useState('');
-    const [authorAffiliations, setAuthorAffiliations] = useState('');
+    const [authoraffiliations, setAuthorAffiliations] = useState('');
     const [isbn, setISBN] = useState('');
 
     /* When form is submitted function is called and artile is assigned values from form*/
     const handleSubmit = (e) => {
         e.preventDefault();
-        const article = { title, author, pubYear, claimBenifit, 
-                        language, source, authorAffiliations, isbn};
-        
+
+        const article = { title, authors, pubyear, claim, language, source, authoraffiliations, isbn};
+
         /* Check output */
         console.log(article);
 
-        /* POST request */ 
-        fetch('http://localhost:3000/SEPractice', {
-            method: 'POST',
-            headers: {"Content-Type": "application/JSON"},
-            body: JSON.stringify(article)
-        }).then(
-            console.log("New Article Added")
-        )
+        try{
+            axios.post(`https://ense701-assesment-1b-group-7.herokuapp.com/api/articles/`, article)
+        .then(res => {
+            console.log(res)
+        })
+    } catch (e) {
+        console.log(e);
+    }
     }
 
     return (
@@ -54,7 +54,7 @@ const Form = () => {
                 <input
                     type="text"
                     required 
-                    onChange={(e) => setAuthor(e.target.value)}
+                    onChange={(e) => setAuthors(e.target.value)}
                     placeholder=" Required ...">
                 </input>
                 
@@ -73,7 +73,7 @@ const Form = () => {
                 <label>Claim Benefit</label><br/>
                 <input
                     type="text"
-                    onChange={(e) => setClaimBenifit(e.target.value)}
+                    onChange={(e) => setClaim(e.target.value)}
                     placeholder=" Optional ...">
                 </input>
 
@@ -116,11 +116,6 @@ const Form = () => {
                 <br/>
 
                 <button>Submit</button><br/>
-                
-                {/*Test that value is being assigned*/} 
-                <p>{title}</p>
-                <p>{author}</p>
-
             </form>
         </div>
     )
