@@ -19,8 +19,6 @@ const SearchBar = ({search, setSearch}) => {
                     onChange={(e) => setSearch(e.target.value)}
                     placeholder=" Search for an Article ...">
                 </input>
-                {/*Test that value is being assigned*/} 
-                <p>{search}</p>
 
             </form>
         </div>
