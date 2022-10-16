@@ -4,6 +4,7 @@
   "description": "SPEED MERN app",
   "main": "server.js",
   "scripts": {
+    "type": "module",
     "start": "node backend/server.js",
     "server": "nodemon backend/server.js",
     "install-react": "cd frontend && npm install",
